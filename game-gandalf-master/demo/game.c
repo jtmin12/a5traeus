@@ -5,7 +5,6 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-// vmdYVszfyRs8vW1Fcbpy
 #include "asset.h"
 #include "asset_cache.h"
 #include "collision.h"
@@ -13,7 +12,6 @@
 #include "player.h"
 #include "screen.h"
 #include "sdl_wrapper.h"
-// hE47quhd-pnTxR-wtoPv
 const uint8_t NUM_SCREENS = 2;
 const uint8_t OP_SCREEN_IDX = 0;
 const uint8_t GAME_SCREEN_IDX = 1;
@@ -645,54 +643,6 @@ void on_key(char key, key_event_type_t type, double held_time, state_t *state) {
     body_set_centroid(shippy2, new_centroid2);
   }
 }
-
-/*
-// *aux is state, grab scene
-void bull_aster_collision_handler(body_t *bullet, body_t *asteroid,
-                                  vector_t axis, void *aux,
-                                  double force_const) {
-  char *path = body_get_info(bullet);
-  state_t *state = aux;
-  if (path == RED_BULLET_PATH || path == DMG_BULLET_PATH) {
-    player_t *player1 = body_get_info(state->shippy1);
-    player_change_points(player1);
-  } else {
-    player_t *player2 = body_get_info(state->shippy2);
-    player_change_points(player2);
-  }
-}
-
-void create_bull_aster_collision() { create_collision() }
-
-void ship_aster_collision_handler(body_t *body1, body_t *body2, vector_t axis,
-                                  void *aux, double force_const) {
-  physics_collision_handler(body2, body1, axis, aux, 1);
-  player_t *player = body_get_info(body1);
-  if (player_get_name(player) == PLAYER1_NAME ||
-      player_get_name(player) == PLAYER2_NAME) {
-    player_change_health(player, ASTER_DMG_TO_PLAYER);
-    body_reset(body1);
-    body_remove(body2);
-  }
-}
-
-void create_ship_aster_collision(scene_t *scene, body_t *body1, body_t *body2)
-{ create_collision(scene, body1, body2, ship_aster_collision_handler, NULL,
-1);
-}
-
-void metal_collision_handler(body_t *body1, body_t *body2, vector_t axis,
-                              void *aux, double force_const) {
-  // player_t *player = body_get_info(body1);
-  //
-  // if (player_get_name(player) == PLAYER_INFO) {
-  //   body_reset(body1);
-  //   body_set_velocity(body1, VEC_ZERO);
-  // }
-  physics_collision_handler(body1, body2, axis, aux, force_const);
-  body_reset(body1);
-}
-*/
 
 void ship_item_collision_handler(body_t *shippy, body_t *item, vector_t axis,
                                  void *aux, double force_const) {
